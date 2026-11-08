@@ -3,6 +3,8 @@
 Das Spiel als Webseite, die sich wie eine App verhält: **ohne Apple-ID, ohne App Store, ohne Ablaufdatum.**
 Läuft auf iPhone, iPad, Android und am Computer. Nach dem ersten Öffnen auch ohne Internet.
 
+**Online:** <https://treborlie.github.io/afrika/>
+
 ## Dateien
 
 | Datei | Inhalt |
