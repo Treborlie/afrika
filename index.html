@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Mosaik Afrika</title>
+<meta name="description" content="Rundenstrategie für 1–4 Spieler um die Staaten Afrikas.">
+<meta name="theme-color" content="#e8a65a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mosaik Afrika">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Startseite -->
+<section id="setup" class="screen">
+  <div class="setup-scroll">
+    <div class="setup-content">
+      <header class="title">
+        <h1>Mosaik Afrika</h1>
+        <p>Strategie für 2 bis 4 Spieler – vereine den Kontinent</p>
+      </header>
+      <div class="card" id="players"></div>
+      <div class="card options">
+        <div class="opt"><span id="startLabel">Startländer: 3</span>
+          <span class="stepper"><button type="button" id="startMinus" aria-label="weniger">−</button><button type="button" id="startPlus" aria-label="mehr">+</button></span></div>
+        <label class="opt">Startländer zufällig verteilen <input type="checkbox" id="optRandom" class="switch"></label>
+        <label class="opt">Ereignisse <input type="checkbox" id="optEvents" class="switch" checked></label>
+        <label class="opt"><span id="soundLabel">🔊 Ton an</span> <input type="checkbox" id="optSound" class="switch"></label>
+      </div>
+    </div>
+  </div>
+  <footer class="setup-bar">
+    <p id="setupError" class="error" hidden></p>
+    <div class="row">
+      <button type="button" class="btn" id="btnRules">Spielregeln</button>
+      <button type="button" class="btn" id="btnLoad">Spiel laden</button>
+    </div>
+    <button type="button" class="btn primary" id="btnContinue" hidden>Weiterspielen</button>
+    <button type="button" class="btn primary big" id="btnStart">Spiel starten</button>
+  </footer>
+</section>
+
+<!-- Spielbildschirm -->
+<section id="game" class="screen" hidden>
+  <header class="topbar">
+    <span class="dot" id="tbDot"></span>
+    <div class="tb-text"><strong id="tbName"></strong><small id="tbRound"></small></div>
+    <span class="spinner" id="tbSpinner" hidden></span>
+    <span class="grow"></span>
+    <button type="button" class="btn primary" id="tbEnd">Zug beenden</button>
+    <button type="button" class="icon-btn" id="tbOverview" aria-label="Übersicht">☰</button>
+    <button type="button" class="icon-btn" id="tbMenu" aria-label="Menü">⋯</button>
+  </header>
+  <div class="map-wrap">
+    <canvas id="map" aria-label="Karte von Afrika"></canvas>
+    <div id="toast" class="toast" hidden></div>
+    <div class="zoom">
+      <button type="button" id="zoomIn" aria-label="Vergrößern">+</button>
+      <button type="button" id="zoomOut" aria-label="Verkleinern">−</button>
+      <button type="button" id="zoomReset" aria-label="Ganze Karte" hidden>⤢</button>
+    </div>
+    <div id="winner" class="winner" hidden>
+      <h2>Spielende</h2><p id="winnerText"></p>
+      <button type="button" class="btn primary" id="btnWinnerNew">Neues Spiel</button>
+    </div>
+  </div>
+  <aside id="sidebar" class="sidebar"></aside>
+  <footer id="info" class="info"></footer>
+</section>
+
+<!-- Fenster (Angriff, Kampf, Regeln, Spielstände, Rückfragen, Menü) -->
+<div id="modal" class="modal" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+<script src="map.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
